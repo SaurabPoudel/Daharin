@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+
+}
+
+model UserProfile {
+  id            String   @id @default(cuid())
+  phone         String   @unique
+  height        Float
+  weight        Float
+  age           Int
+  gender        String
+  goal          String
+  timeframe     Int
+  activityLevel String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  isSubscribed      Boolean  @default(false)
+  subscriptionStart DateTime?
+  subscriptionEnd   DateTime?
+  mealCount         Int      @default(0)
+  lastMealDate    String?  
+  paymentImageUrl String?
+  
+  nutritionGoals NutritionGoals?
+  foodEntries    FoodEntry[]
+  
+  
+}
+
+model NutritionGoals {
+  id            String   @id @default(cuid())
+  userProfileId String   @unique
+  dailyCalories Int
+  protein       Int
+  carbs         Int
+  fat           Int
+  isCustom      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relation to user profile
+  userProfile   UserProfile @relation(fields: [userProfileId], references: [id])
+}
+
+model FoodEntry {
+  id          String   @id @default(cuid())
+  phone       String
+  imageUrl    String
+  foodName    String
+  calories    Float
+  protein     Float
+  carbs       Float
+  fat         Float
+  createdAt   DateTime @default(now())
+  userProfile UserProfile @relation(fields: [phone], references: [phone])
+
+}
