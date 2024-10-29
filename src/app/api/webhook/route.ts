@@ -23,7 +23,9 @@ Steps:
 
 Current limitations for free users:
 - Maximum 2 meals per day
-- Basic tracking features only`;
+
+If any issues arises: +9779861487591
+`;
 
 // Check if user can add meal
 async function canAddMeal(phone: string): Promise<{ 
