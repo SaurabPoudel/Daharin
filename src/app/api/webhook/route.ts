@@ -24,7 +24,7 @@ Steps:
 Current limitations for free users:
 - Maximum 2 meals per day
 
-If any issues arises: +9779861487591
+If any issues arises message here: +9779861487591
 `;
 
 // Check if user can add meal
