@@ -4,7 +4,7 @@ Example: 175, 70, 30, male, lose, 12, moderate`;
 
 export const GOALS_MESSAGE = `To set custom nutrition goals, use this format:
 goals: calories, protein, carbs, fat
-Example: goals: 2000, 150, 200, 70`;
+Example: goals: 2000, 150, 200, 60`;
 
 export const HELP_MESSAGE = `🍽 Welcome to CalorieTracker!
 
