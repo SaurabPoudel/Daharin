@@ -12,7 +12,7 @@ const MessagingResponse = twilio.twiml.MessagingResponse;
 const PAYMENT_MESSAGE = `💰 Subscribe to unlock unlimited meal tracking!
 
 Price: $30/year
-Payment Link: https://paypal.me/lamichhaneamrita.1995
+Payment Id: lamichhane.amrita1995@gmail.com 
 
 Steps:
 1. Make the payment using the link above
@@ -61,7 +61,9 @@ async function canAddMeal(phone: string): Promise<{
   if (!profile.isSubscribed && profile.mealCount >= 2) {
     return {
       allowed: false,
-      message: `❌ You've reached today's limit of 2 meals.
+      message: ` 
+Sorry !
+❌ You've reached today's limit of 2 meals.
 
 💡 Want unlimited meals? Type 'pay' to subscribe!
 
@@ -218,6 +220,7 @@ export async function POST(req: Request) {
             headers: { 'Content-Type': 'text/xml' }
           });
         }
+        twiml.message('The food data is being analyzed....')
 
         let foodName = '';
         let nutrition = null;
