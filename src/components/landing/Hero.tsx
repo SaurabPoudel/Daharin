@@ -1,6 +1,5 @@
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { FadeIn } from './MotionWrapper';
+import { Button } from "@/components/ui/button";
+import { FadeIn } from "./MotionWrapper";
 
 export function Hero() {
   return (
@@ -14,7 +13,8 @@ export function Hero() {
           Track calories directly through WhatsApp
         </h1>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-          Set your goals, snap your meals, and get instant nutrition insights. No app needed.
+          Set your goals, snap your meals, and get instant nutrition insights.
+          No app needed.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600">
